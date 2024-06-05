@@ -144,3 +144,6 @@ print(stmt_count) # Imprimindo query
 
 for count in session.scalars(stmt_count):
     print(count)
+
+# Encerrando a sessão
+session.close()
