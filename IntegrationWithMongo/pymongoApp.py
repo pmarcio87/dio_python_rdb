@@ -2,7 +2,7 @@ import pprint
 import pymongo as pym
 import datetime as dt
 
-client = pym.MongoClient("mongodb+srv://pmarcio87:123abc@cluster0.xyve0yi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+client = pym.MongoClient("pymongo-url")
 
 db = client.test
 collection = db.test_collection
@@ -33,12 +33,14 @@ new_posts = [{
     "author":"paulo",
     "text":"Second document using pymongo",
     "tags":["paulo", "second", "mongodb", "pymongo"],
-    "date":dt.datetime.now(dt.UTC)},{
+    "date":dt.datetime.now(dt.UTC)},
+    {
     "author":"carolina",
     "title":"New Author in Town!",
     "text":"Third document from a new author using pymongo",
     "tags":["third", "carolina", "pymongo", "new"],
-    "date":dt.datetime(2024, 6, 6, 11, 2)}]
+    "date":dt.datetime(2024, 6, 6, 11, 2)}
+    ]
 
 # Fazendo um bulk insert
 new_posts_id = db.posts.insert_many(new_posts).inserted_ids
